@@ -1,5 +1,4 @@
 name: Run UI Tests For Aviasales page
-name: Run UI Tests For Aviasales page
 on:
   push:
     branches: [main]
