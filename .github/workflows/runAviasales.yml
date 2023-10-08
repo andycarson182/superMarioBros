@@ -15,9 +15,6 @@ jobs:
         run: npm ci
       - name: Run tests on chrome
         run: npx cypress run --browser chrome --config video=false
-      - name: Generate report
-        run: npm run cypress:report
-        if: always()
       - name: Save report
         uses: actions/upload-artifact@v3
         with:
