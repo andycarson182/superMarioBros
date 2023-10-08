@@ -35,9 +35,9 @@ class CommonPageElements {
     checkNightBackgroundIsEnabled(isEnabled) {
         const mainPageHtml = cy.get('html');
         if (isEnabled) {
-            mainPageHtml.invoke('attr', 'class').should('include', '--us --night');
+            mainPageHtml.invoke('attr', 'class').should('include', '--night');
         } else {
-            mainPageHtml.invoke('attr', 'class').should('include', '--us');
+            mainPageHtml.invoke('attr', 'class').should('not.include', '--night');
         }
     }
 
