@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
-import commonPageElements from '../../support/page-objects/CommonPageElements';
-import homePage from '../../support/page-objects/HomePage';
-import searchPage from '../../support/page-objects/SearchPage';
+import commonPageElements from '../support/page-objects/CommonPageElements';
+import homePage from '../support/page-objects/HomePage';
+import searchPage from '../support/page-objects/SearchPage';
 
 describe('Test the Avisales ticket search functionality', () => {
   beforeEach(() => {
