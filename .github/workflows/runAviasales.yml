@@ -1,33 +1,24 @@
 name: Run UI Tests For Aviasales page
+name: Run UI Tests For Aviasales page
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
   schedule:
-    - cron: "0 10 * * 1-5"
+    - cron: "30 0 * * *"
+
 jobs:
   run-chrome:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Setup Node.js Version
-        uses: actions/setup-node@v3
-        with:
-          node-version: "16.x"
-      - name: Install dependencies (including Chrome)
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb
-          sudo apt-get install -y fonts-liberation xdg-utils
-          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-          sudo dpkg -i google-chrome-stable_current_amd64.deb
-          rm google-chrome-stable_current_amd64.deb
-          npm i
-      - name: Cypress.io Chrome
-        uses: cypress-io/github-action@v4.2.0
-        with:
-          browser: chrome
-          headed: true
-          tag: "aviasales-test-report"
-          config-file: cypress.config.js
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm ci
+      - name: Run tests on chrome
+        run: npx cypress run --browser chrome --config video=false
+      - name: Generate report
+        run: npm run cypress:report
+        if: always()
       - name: Save report
         uses: actions/upload-artifact@v3
         with:
