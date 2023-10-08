@@ -1,0 +1,13 @@
+{
+  "origin": "Kennedy Int",
+  "destination": "Berlin",
+  "calendarFromMonth": "2023-10",
+  "calendarFromDay": "30",
+  "passengerType": "Adults",
+  "numberOfPassengers": 2,
+  "passengerClass": "Economy",
+  "expectedOrigin": "John F. Kennedy International Airport",
+  "formattedExpectedCalendarDate": "Mon, October 30",
+  "expectedReturnedDate": null,
+  "expectedPassengerNumberAndPassengerTypeLabel": "2 passengers economy"
+}
