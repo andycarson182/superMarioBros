@@ -17,4 +17,4 @@ _Prerequisite: You'll need to install NPM and node.js on your machine to install
 
 Alternatively, you can run all of the test cases form the command line in headless mode. For that run this command on a terminal on the root of the project: `npx cypress run --browser chrome --headless` or `node_modules/.bin/cypress --browser chrome --headless`
 
-![download](https://github.com/andycarson182/superMarioBros/assets/25748942/04f52874-7a48-426e-b1d5-6434415d1920)
+![D2666CWJENGRRLLJEWC7BUAMLI](https://github.com/andycarson182/superMarioBros/assets/25748942/608f833e-309f-4c70-8e98-9b4eaf69f265)
