@@ -119,7 +119,6 @@ class HomePage {
                 for (let i = 1; i <= numberOfPassengers - 1; i++) {
                     this.getplusButtonPosition(0).click();
                 }
-                this.getPassengersAndClassCloseModalButton().click();
                 break;
             case 'Children':
                 // this current count makes sure if there is any default number pre set up, start to count from the current passenger value for each passenger Type
@@ -138,6 +137,7 @@ class HomePage {
             default:
                 console.log('No match with any passenger type');
         }
+        this.expandPassengetAndClassDropdownMenu()
     }
 
 
