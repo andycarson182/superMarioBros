@@ -26,8 +26,14 @@ jobs:
         with:
           browser: chrome
           headed: true
-          record: true
+          record: false
           tag: "aviasales-test-report"
-          parallel: true
+          parallel: false
           group: "UI- Chrome"
           config-file: cypress.config.js
+      - name: Save report
+        uses: actions/upload-artifact@v3
+        with:
+          name: aviasales-test-report
+          path: cypress/reports/html/
+        if: always()
