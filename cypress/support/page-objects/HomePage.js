@@ -29,6 +29,10 @@ class HomePage {
         return cy.get('div.additional-fields');
     }
 
+    getCurrentPassengerValue(position) {
+        return cy.get('span.additional-fields__passenger-value').eq(position);
+    }
+
     getClassRadioButton() {
         return cy.get('div.custom-radio__caption');
     }
@@ -100,9 +104,8 @@ class HomePage {
         }
     }
 
-    getCurrentPassengerValue(position) {
-        return cy.get('.additional-fields__passenger-control-wrap > .additional-fields__passenger-value').eq(position).invoke('text');
-    }
+
+
 
     getplusButtonPosition(position) {
         return cy.get('div > div.additional-fields__passenger-control-wrap > div:nth-child(3)').eq(position);
@@ -111,28 +114,35 @@ class HomePage {
 
     selectPassengerTypeAndAddPassengers(passengerType, passengerClass, numberOfPassengers) {
         this.expandPassengetAndClassDropdownMenu()
+
         this.selectPassengerClass(passengerClass)
         switch (passengerType) {
             case 'Adults':
+                const adultsPosition = 0
                 // this current count makes sure if there is any default number pre set up, start to count from the current passenger value for each passenger Type
-                const currentCountAdults = this.getCurrentPassengerValue(0);
-                for (let i = 1; i <= numberOfPassengers - 1; i++) {
-                    this.getplusButtonPosition(0).click();
-                }
+                this.getCurrentPassengerValue(adultsPosition).invoke('text').then((text) => {
+                    for (let i = 1; i <= numberOfPassengers - text; i++) {
+                        this.getplusButtonPosition(adultsPosition).click();
+                    }
+                })
                 break;
             case 'Children':
+                const childrenPosition = 1
                 // this current count makes sure if there is any default number pre set up, start to count from the current passenger value for each passenger Type
-                const currentCountChildren = this.getCurrentPassengerValue(1);
-                for (let i = 1; i <= numberOfPassengers - currentCountChildren; i++) {
-                    this.getplusButtonPosition(1).click();
-                }
+                this.getCurrentPassengerValue(childrenPosition).invoke('text').then((text) => {
+                    for (let i = 1; i <= numberOfPassengers - text; i++) {
+                        this.getplusButtonPosition(childrenPosition).click();
+                    }
+                })
                 break;
             case 'Infants':
+                const infantsPosition = 2
                 // this current count makes sure if there is any default number pre set up, start to count from the current passenger value for each passenger Type
-                const currentCountInfants = this.getCurrentPassengerValue(2);
-                for (let i = 1; i <= numberOfPassengers - currentCountInfants; i++) {
-                    this.getplusButtonPosition(2).click();
-                }
+                this.getCurrentPassengerValue(infantsPosition).invoke('text').then((text) => {
+                    for (let i = 1; i <= numberOfPassengers - text; i++) {
+                        this.getplusButtonPosition(infantsPosition).click();
+                    }
+                })
                 break;
             default:
                 console.log('No match with any passenger type');

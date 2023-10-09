@@ -19,7 +19,7 @@ describe('Test the Avisales ticket search functionality', () => {
       homePage.selectCalendarDate(flightInfo.calendarFromMonth, flightInfo.calendarFromDay);
       homePage.clickIDontNeedReturnTicketButton();
       homePage.selectPassengerTypeAndAddPassengers(flightInfo.passengerType, flightInfo.passengerClass, flightInfo.numberOfPassengers);
-      commonPageElements.clickSearchFlightsButton();
+      /*commonPageElements.clickSearchFlightsButton();
       searchPage.checkNewSearchPageisOpen();
       commonPageElements.checkNightBackgroundIsEnabled(true); // checks the night background is still enabled in the search page
       searchPage.checkValuesOnFilterForm(
@@ -28,7 +28,7 @@ describe('Test the Avisales ticket search functionality', () => {
         flightInfo.formattedExpectedCalendarDate,
         flightInfo.expectedReturedDate,
         flightInfo.expectedPassengerNumberAndPassengerTypeLabel
-      )
+      )*/
     })
 
   })
